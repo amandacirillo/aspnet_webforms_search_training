@@ -1,0 +1,26 @@
+name: build-and-test
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Test SkillsSearch.Core
+        run: dotnet test SkillsSearch.Core.Tests/SkillsSearch.Core.Tests.csproj --configuration Release
+    # Note: WebApp is a classic ASP.NET Web Forms (System.Web) project and
+    # requires a Windows + MSBuild + .NET Framework 4.7.2 targeting pack to
+    # build -- it isn't buildable with the cross-platform `dotnet` CLI used
+    # here. Only the testable SkillsSearch.Core library is verified in CI.
+    # See the README for how to build/run WebApp locally in Visual Studio.
