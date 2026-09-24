@@ -1,5 +1,7 @@
 # ASP.NET Web Forms Skills Search Training
 
+> **Note:** This is a from-scratch recreation of an architectural pattern I built at my employer, not the original production code -- rebuilt with a fabricated/generic domain and no proprietary business logic, credentials, or internal resource identifiers.
+
 A training example based on a real internal ASP.NET Web Forms app: a staff "skills directory"
 search page where users filter a staff list by technical/psychometric skills, skill level, and
 testing program. This version keeps the same UI/interaction pattern but fixes several
